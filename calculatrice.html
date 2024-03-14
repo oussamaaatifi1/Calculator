@@ -5,45 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="Media/calculator.ico">
     <link rel="stylesheet" href="css/calculatrice.css">
+    <script src="calculatrice.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-<hash>" crossorigin="anonymous" />
     <title>Calculatrice</title>
 
 </head>
 <body>
     <div class="section">
-    <div class="calculator">
-        <div class="input" id="input"></div>
-        <div class="buttons">
-            <div class="operators">
-                <div>+</div>
-                <div>-</div>
-                <div>&times;</div>
-                <div>&divide;</div>
+        <div class="calculator">
+            <div class="input" id="result">= </div>
+            <div class="input" id="display"></div>
+            <div class="buttons">
+                <div class="operators">
+                    <div onclick="appendOperator('+')">+</div>
+                    <div onclick="appendOperator('%')">%</div>
+                    <div onclick="appendOperator('*')">*</div>
+                    <div class="acButton" onclick="clearDisplay()">AC</div>
+                </div>
+                <div class="leftPanel">
+                    <div class="numbers">
+                        <div class="numberswhite" onclick="appendNumber(7)">7</div>
+                        <div class="numberswhite" onclick="appendNumber(8)">8</div>
+                        <div class="numberswhite" onclick="appendNumber(9)">9</div>
+                        <div onclick="appendOperator('/')">/</div>
+                    </div>
+                    <div class="numbers">
+                        <div class="numberswhite" onclick="appendNumber(4)">4</div>
+                        <div class="numberswhite" onclick="appendNumber(5)">5</div>
+                        <div class="numberswhite" onclick="appendNumber(6)">6</div>
+                        <div onclick="appendOperator('-')">-</div>
+                    </div>
+                    <div class="numbers">
+                        <div class="numberswhite" onclick="appendNumber(1)">1</div>
+                        <div class="numberswhite" onclick="appendNumber(2)">2</div>
+                        <div class="numberswhite" onclick="appendNumber(3)">3</div>
+                        <div onclick="appendOperator('+')">+</div>
+                    </div>
+                    <div class="numbers">
+                        <div class="numberswhite" onclick="appendNumber(0)">0</div>
+                        <div onclick="appendNumber('.')">.</div>
+                        <div class="equal" id="equal" onclick="safeCalculator()">=</div>
+                        <div onclick="backspace()"><i class="fas fa-backspace"></i></div>
+                    </div>
+                </div>
             </div>
-            <div class="leftPanel">
-                <div class="numbers">
-                    <div>7</div>
-                    <div>8</div>
-                    <div>9</div>
-                </div>
-                <div class="numbers">
-                    <div>4</div>
-                    <div>5</div>
-                    <div>6</div>
-                </div>
-                <div class="numbers">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                </div>
-                <div class="numbers">
-                    <div>0</div>
-                    <div>.</div>
-                    <div id="clear">C</div>
-                </div>
-            </div>
-            <div class="equal" id="result">=</div>
         </div>
     </div>
-</div>
+    
 </body>
 </html>

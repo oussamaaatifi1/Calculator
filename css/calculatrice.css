@@ -1,11 +1,126 @@
-/* Import Font */
-@import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
-/* Import Font */
+    /* Import Font */
+    @import url('https://fonts.googleapis.com/css2?family=Iceberg&display=swap');
+    /* @import url('https://fonts.googleapis.com/css2?family=Iceberg&family=Orbitron:wght@400..900&display=swap'); */
+    
+    /* Import Font */
 
-/* Apply All Code Font */
-* {
-    font-family: "Iceberg", sans-serif;
-    font-size: 25px;
-    font-weight: 400;
-    font-style: normal;
-}
+    /* Apply All Code Font */
+    * {
+        /* font-family: "Orbitron", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 40px; */
+        font-family: "Iceberg", sans-serif;
+        font-size: 62px;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    
+    /* Apply All Code Font */
+
+    .section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .calculator {
+        background-color: #222831;
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    .calculator {}
+
+    .input {
+        background-color: #00ADB5;
+        height: 50px;
+        padding-right: 15px;
+        padding: 10px;
+        text-align: right;
+        margin-right: 12px;
+        font-size: 25px;
+        overflow-x: auto;
+        transition: all .2s ease-in-out;
+        width: 95.6%;
+        color: white;
+        
+    }
+    .input:hover {
+        /* border: 1px solid #bbb; */
+        -webkit-box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    .buttons {
+        
+    }
+
+
+    .numbers div,
+    .operators div{
+        display: inline-block;
+        border-radius: 50%;
+        width: 90px;
+        height: 90px;
+        text-align: center;
+        padding: 10px;
+        margin: 20px 4px 10px 0;
+        background-color: #393E46;
+        transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
+        color: #EEEEEE;
+    }
+    div .numberswhite {
+        display: inline-block;
+        border-radius: 50%;
+        width: 90px;
+        height: 90px;
+        text-align: center;
+        padding: 10px;
+        margin: 20px 4px 10px 0;
+        cursor: pointer;
+        background-color: #EEEEEE;
+        transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
+        color: #00ADB5;
+    }
+
+    .fa, .fas {
+        font-weight: 800;
+        font-size: 44px;
+    }
+    .equal {
+        display: inline-block;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        text-align: center;
+        padding: 10px;
+        margin: 20px 4px 10px 0;
+        cursor: pointer;
+        background-color: #1b1212;
+        transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
+        color: white;
+    }
+
+    .equal {
+        width: 80px; /* Adjust width for the equal sign */
+        height: 80px; /* Adjust height for the equal sign */
+        padding: 0;
+        line-height: 80px; /* Center the content vertically */
+    }
+
+    /* Hover */
+    .numbers div:hover,
+    .operators div:hover,
+    .equal:hover {
+        -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+        border-color: #bbb;
+    }
+    .leftPanel {
+        display: inline-block;
+    }
+
+    
