@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="Media/calculator.ico">
     <link rel="stylesheet" href="css/calculatrice.css">
-    <script src="calculatrice.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-<hash>" crossorigin="anonymous" />
         <title>Calculatrice</title>
 
@@ -33,78 +32,6 @@
             <button class="button">+</button>
         </div>
     </div>
-<script>
-    const resultDisplay = document.getElementById('result');
-        const operandDisplay = document.getElementById('operande');
-        let operand = '0';
-        let total = 0;
-        let operatorPrev = '';
-
-        function updateDisplay() {
-            operandDisplay.textContent = operand;
-            resultDisplay.textContent = total;
-        }
-
-        document.querySelectorAll('.button').forEach(button => {
-            button.addEventListener('click', () => {
-                const input = button.textContent;
-
-                if (input === 'AC') {
-                    operand = '0';
-                    total = 0;
-                    operatorPrev = '';
-                } else if (input === '=') {
-                    if (operatorPrev === '+') {
-                        total += parseFloat(operand);
-                    } else if (operatorPrev === '-') {
-                        total -= parseFloat(operand);
-                    } else if (operatorPrev === '*') {
-                        total *= parseFloat(operand);
-                    } else if (operatorPrev === '/') {
-                        total /= parseFloat(operand);
-                    } else {
-                        total = parseFloat(operand);
-                    }
-                    operand = total.toString();
-                    operatorPrev = '=';
-                } else if (input === '+' || input === '-' || input === '*' || input === '/') {
-                    if (operatorPrev === '+') {
-                        total += parseFloat(operand);
-                    } else if (operatorPrev === '-') {
-                        total -= parseFloat(operand);
-                    } else if (operatorPrev === '*') {
-                        total *= parseFloat(operand);
-                    } else if (operatorPrev === '/') {
-                        total /= parseFloat(operand);
-                    } else {
-                        total = parseFloat(operand);
-                    }
-                    operand = '0';
-                    operatorPrev = input;
-                } else if (input === '.') {
-                    if (!operand.includes('.')) {
-                        operand += '.';
-                    }
-                } else if (button.classList.contains('backspace')) {
-                    operand = operand.slice(0, -1);
-                    if (operand === '') {
-                        operand = '0';
-                    }
-                } else {
-                    if (operand === '0' && operatorPrev === '=') {
-                        operand = '0';
-                        total = 0;
-                        operatorPrev = '';
-                    }
-                    if (operand === '0') {
-                        operand = '';
-                    }
-                    operand += input;
-                }
-
-                updateDisplay();
-            });
-        });
-</script>
+    <script src="calculatrice.js"></script>
 </body>
 </html>
