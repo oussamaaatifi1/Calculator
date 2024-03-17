@@ -5,45 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="Media/calculator.ico">
     <link rel="stylesheet" href="css/calculatrice.css">
-    <title>Calculatrice</title>
+    <script src="calculatrice.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-<hash>" crossorigin="anonymous" />
+        <title>Calculatrice</title>
 
 </head>
 <body>
-    <div class="section">
     <div class="calculator">
-        <div class="input" id="input"></div>
+        <div class="display" id="result">0</div>
+        <div class="input" id="operande"></div>
         <div class="buttons">
-            <div class="operators">
-                <div>+</div>
-                <div>-</div>
-                <div>&times;</div>
-                <div>&divide;</div>
-            </div>
-            <div class="leftPanel">
-                <div class="numbers">
-                    <div>7</div>
-                    <div>8</div>
-                    <div>9</div>
-                </div>
-                <div class="numbers">
-                    <div>4</div>
-                    <div>5</div>
-                    <div>6</div>
-                </div>
-                <div class="numbers">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                </div>
-                <div class="numbers">
-                    <div>0</div>
-                    <div>.</div>
-                    <div id="clear">C</div>
-                </div>
-            </div>
-            <div class="equal" id="result">=</div>
+            <button class="button">7</button>
+            <button class="button">8</button>
+            <button class="button">9</button>
+            <button class="button clear">AC</button>
+            <button class="button">4</button>
+            <button class="button">5</button>
+            <button class="button">6</button>
+            <button class="button">/</button>
+            <button class="button">1</button>
+            <button class="button">2</button>
+            <button class="button">3</button>
+            <button class="button">*</button>
+            <button class="button">0</button>
+            <button class="button">.</button>
+            <button class="button">=</button>
+            <button class="button">+</button>
         </div>
     </div>
-</div>
+<script>
+    const resultDisplay = document.getElementById('result');
+        const operandDisplay = document.getElementById('operande');
+        let operand = '0';
+        let total = 0;
+        let operatorPrev = '';
+
+        function updateDisplay() {
+            operandDisplay.textContent = operand;
+            resultDisplay.textContent = total;
+        }
+
+        document.querySelectorAll('.button').forEach(button => {
+            button.addEventListener('click', () => {
+                const input = button.textContent;
+
+                if (input === 'AC') {
+                    operand = '0';
+                    total = 0;
+                    operatorPrev = '';
+                } else if (input === '=') {
+                    if (operatorPrev === '+') {
+                        total += parseFloat(operand);
+                    } else if (operatorPrev === '-') {
+                        total -= parseFloat(operand);
+                    } else if (operatorPrev === '*') {
+                        total *= parseFloat(operand);
+                    } else if (operatorPrev === '/') {
+                        total /= parseFloat(operand);
+                    } else {
+                        total = parseFloat(operand);
+                    }
+                    operand = total.toString();
+                    operatorPrev = '=';
+                } else if (input === '+' || input === '-' || input === '*' || input === '/') {
+                    if (operatorPrev === '+') {
+                        total += parseFloat(operand);
+                    } else if (operatorPrev === '-') {
+                        total -= parseFloat(operand);
+                    } else if (operatorPrev === '*') {
+                        total *= parseFloat(operand);
+                    } else if (operatorPrev === '/') {
+                        total /= parseFloat(operand);
+                    } else {
+                        total = parseFloat(operand);
+                    }
+                    operand = '0';
+                    operatorPrev = input;
+                } else if (input === '.') {
+                    if (!operand.includes('.')) {
+                        operand += '.';
+                    }
+                } else if (button.classList.contains('backspace')) {
+                    operand = operand.slice(0, -1);
+                    if (operand === '') {
+                        operand = '0';
+                    }
+                } else {
+                    if (operand === '0' && operatorPrev === '=') {
+                        operand = '0';
+                        total = 0;
+                        operatorPrev = '';
+                    }
+                    if (operand === '0') {
+                        operand = '';
+                    }
+                    operand += input;
+                }
+
+                updateDisplay();
+            });
+        });
+</script>
 </body>
 </html>
